@@ -230,6 +230,8 @@ public final class WebSocketWriter {
       } else {
         sink.write(source, byteCount);
       }
+
+      sink.flush();
     }
   }
 

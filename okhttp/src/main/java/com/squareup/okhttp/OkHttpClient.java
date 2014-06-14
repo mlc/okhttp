@@ -30,6 +30,7 @@ import java.net.ProxySelector;
 import java.net.URLConnection;
 import java.security.GeneralSecurityException;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import javax.net.SocketFactory;
 import javax.net.ssl.HostnameVerifier;
@@ -447,8 +448,7 @@ public final class OkHttpClient implements Cloneable {
     // Copy the client. Otherwise changes (socket factory, redirect policy,
     // etc.) may incorrectly be reflected in the request when it is executed.
     OkHttpClient client = copyWithDefaults();
-
-    throw new UnsupportedOperationException(); // TODO!
+    return new WebSocket(client, request, new Random());
   }
 
   /**
